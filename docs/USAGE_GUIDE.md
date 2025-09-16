@@ -19,12 +19,12 @@ Complete guide for using the Smart Melody Tokenizer in various scenarios.
 
 ```bash
 # Clone and install
-git clone https://github.com/your-org/smt-modern
+git clone https://github.com/WebChatAppAi/smt-modern
 cd smt-modern
-pip install -e .
+python -m pip install -e .
 
-# Or install from PyPI (when published)
-pip install smt-modern
+# Or install from PyPI
+python -m pip install smt-modern
 ```
 
 ### Quick Test
@@ -41,6 +41,9 @@ tokenizer.print_tokenization_example(tokens)
 
 # Check vocabulary size
 print(f"Vocabulary size: {tokenizer.vocabulary.size}")
+
+# Note: For the examples to run smoothly, ensure you have test MIDI files available.
+# You can find sample MIDI files in the 'tests/data' directory of this repository.
 ```
 
 ---

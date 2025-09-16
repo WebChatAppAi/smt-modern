@@ -10,7 +10,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![GitHub Stars](https://img.shields.io/github/stars/WebChatAppAi/smt-modern.svg)](https://github.com/WebChatAppAi/smt-modern/stargazers)
 [![Downloads](https://img.shields.io/pypi/dm/smt-modern.svg)](https://pypi.org/project/smt-modern/)
-[![Tests](https://img.shields.io/badge/tests-80%20passing-brightgreen.svg)](https://github.com/WebChatAppAi/smt-modern/actions)
+![Tests](https://img.shields.io/badge/tests-passing-brightgreen.svg)
 
 SMT provides **5x faster training** and **intuitive control** compared to traditional REMI tokenization, using compound tokens and musical intelligence.
 
@@ -44,7 +44,7 @@ SMT provides **5x faster training** and **intuitive control** compared to tradit
 - **MIDI I/O**: Full pipeline with file support
 
 ### 🛠️ **Developer Experience**
-- **80 Unit Tests**: Comprehensive test coverage
+- **Comprehensive tests**: Solid unit and integration coverage
 - **Rich Documentation**: API docs + usage guides
 - **Easy Installation**: `pip install smt-modern`
 
@@ -67,7 +67,7 @@ SMT provides **5x faster training** and **intuitive control** compared to tradit
 | **Pattern awareness** | ❌ Manual | ✅ Built-in | 🎼 Musical intelligence |
 | **Genre control** | ❌ Limited | ✅ 8 genres | 🎨 Style conditioning |
 | **Real-time generation** | ❌ Slow | ✅ <1 second | ⚡ Interactive |
-| **Test coverage** | ❌ None | ✅ 80 tests | 🛡️ Production ready |
+| **Test coverage** | ❌ None | ✅ Comprehensive | 🛡️ Production ready |
 
 </div>
 
@@ -95,49 +95,49 @@ SMT provides **5x faster training** and **intuitive control** compared to tradit
 </td>
 <td width="33%">
 
-#### 🚀 **Modern Infrastructure**
-- Comprehensive unit tests (80)
+#### Modern Infrastructure
+- Comprehensive tests
 - Professional documentation
-- Easy pip installation
+- Easy installation via pip
 - Real-world MIDI testing
 
 </td>
 </tr>
 </table>
 
-## 🛠️ Installation
+## Installation
 
-### 📦 **From PyPI (Recommended)**
+### From PyPI (Recommended)
 ```bash
 pip install smt-modern
 ```
 
-### 🔧 **From Source**
+### From Source
 ```bash
 # Clone the repository
 git clone https://github.com/WebChatAppAi/smt-modern.git
 cd smt-modern
 
-# Install in development mode
-pip install -e .
+# Install in development mode (Windows-safe)
+python -m pip install -e .
 ```
 
-### ⚙️ **For Development**
+### For Development
 ```bash
 git clone https://github.com/WebChatAppAi/smt-modern.git
 cd smt-modern
-pip install -e ".[dev]"  # Installs dev dependencies
+python -m pip install -e ".[dev]"  # Installs dev dependencies
 ```
 
-## 🎯 Quick Start
+## Quick Start
 
-### 🎬 **Demo: REMI vs SMT**
+### Demo: REMI vs SMT
 
 <table>
 <tr>
 <td width="50%">
 
-#### 🏷️ **REMI Tokenization**
+#### REMI Tokenization
 ```python
 # 133 notes → 665 tokens (5 per note)
 [
@@ -147,12 +147,12 @@ pip install -e ".[dev]"  # Installs dev dependencies
   "Pitch_67", "Duration_8", ...
 ]
 ```
-**❌ Cryptic, verbose, slow**
+**Cryptic, verbose, slow**
 
 </td>
 <td width="50%">
 
-#### 🚀 **SMT Tokenization**
+#### SMT Tokenization
 ```python
 # 133 notes → 138 tokens (1 per note)
 [
@@ -162,7 +162,7 @@ pip install -e ".[dev]"  # Installs dev dependencies
   "BAR", "NOTE_B4_quarter_f", ...
 ]
 ```
-**✅ Intuitive, compact, fast**
+**Intuitive, compact, fast**
 
 </td>
 </tr>
@@ -170,7 +170,7 @@ pip install -e ".[dev]"  # Installs dev dependencies
 
 **Real Test**: *Our 133-note MIDI file compressed to 138 tokens with 0.96 ratio!*
 
-### 🚀 **Basic Usage**
+### Basic Usage
 
 ```python
 from smt import SmartMelodyTokenizer
@@ -214,7 +214,7 @@ midi_config = {
 tokenizer = SmartMelodyTokenizer(vocab_config, midi_config)
 ```
 
-## 🎼 Token Format Examples
+## Token Format Examples
 
 ### Simple Melody
 ```
@@ -225,6 +225,8 @@ tokenizer = SmartMelodyTokenizer(vocab_config, midi_config)
 ```
 [BOS] → BAR → PATTERN_SCALE_UP → NOTE_C4_eighth_mp → NOTE_D4_eighth_mp → ... → [EOS]
 ```
+
+Note: Pattern detection is provided by the `PatternDetector` component. The `encode_*` methods of `SmartMelodyTokenizer` do not automatically insert `PATTERN_*` tokens. You can detect patterns from notes using `PatternDetector` and optionally add `PATTERN_*` tokens as controls in your training or generation pipeline.
 
 ### With Rests
 ```
@@ -244,7 +246,7 @@ tokenizer = SmartMelodyTokenizer(vocab_config, midi_config)
 │   ├── 🛠️ utils/
 │   │   └── midi_utils.py            # 🎹 MIDI I/O processing
 │   └── __init__.py                  # 📝 Package exports
-├── 🧪 tests/                        # ✅ 80 comprehensive tests
+├── 🧪 tests/                        # ✅ Comprehensive tests
 │   ├── test_tokenizer.py            # 🎯 Tokenizer tests
 │   ├── test_vocabulary.py           # 📚 Vocabulary tests
 │   ├── test_patterns.py             # 🎼 Pattern detection tests
@@ -268,7 +270,7 @@ tokenizer = SmartMelodyTokenizer(vocab_config, midi_config)
 ### 🏗️ **Build Artifacts**
 - **📦 Wheel Package**: Ready for `pip install`
 - **📦 Source Distribution**: Complete source package
-- **🧪 Test Coverage**: 80 passing tests
+- **🧪 Test Coverage**: Comprehensive test suite
 - **📚 Documentation**: API docs + usage guides
 
 ## 🔧 API Reference
@@ -396,7 +398,7 @@ python smt/core/tokenizer.py
 
 ```bash
 # Install development dependencies
-pip install -e ".[dev]"
+python -m pip install -e ".[dev]"
 
 # Run linting
 flake8 smt/
