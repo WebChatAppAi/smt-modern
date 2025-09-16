@@ -1,0 +1,25 @@
+# SMT - Smart Melody Tokenizer Requirements
+
+# Core dependencies
+numpy>=1.20.0
+pandas>=1.3.0
+
+# MIDI processing
+miditoolkit>=1.0.0
+pretty-midi>=0.2.9
+music21>=9.0.0
+mido>=1.2.0
+
+# Utilities
+matplotlib>=3.5.0
+requests>=2.25.0
+
+# Development dependencies (optional)
+pytest>=6.0.0
+black>=21.0.0
+flake8>=3.9.0
+mypy>=0.910
+
+# Optional: For pattern recognition and analysis
+scipy>=1.7.0
+scikit-learn>=1.0.0

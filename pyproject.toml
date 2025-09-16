@@ -1,0 +1,137 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "smt-modern"
+version = "1.0.0"
+authors = [
+    {name = "SMT Contributors", email = "smt@example.com"},
+]
+description = "Smart Melody Tokenizer - A modern, efficient alternative to REMI tokenization for melody generation"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.8"
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Multimedia :: Sound/Audio :: MIDI",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+keywords = [
+    "midi", "music", "ai", "tokenization", "melody", "generation",
+    "transformer", "machine-learning", "music-ai", "remi"
+]
+dependencies = [
+    "numpy>=1.20.0",
+    "pandas>=1.3.0",
+    "miditoolkit>=1.0.0",
+    "pretty-midi>=0.2.9",
+    "music21>=9.0.0",
+    "mido>=1.2.0",
+    "matplotlib>=3.5.0",
+    "requests>=2.25.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=6.0.0",
+    "black>=21.0.0",
+    "flake8>=3.9.0",
+    "mypy>=0.910",
+    "pytest-cov>=2.12.0",
+]
+analysis = [
+    "scipy>=1.7.0",
+    "scikit-learn>=1.0.0",
+    "seaborn>=0.11.0",
+    "jupyterlab>=3.0.0",
+]
+docs = [
+    "sphinx>=4.0.0",
+    "sphinx-rtd-theme>=1.0.0",
+    "myst-parser>=0.15.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/WebChatAppAi/smt-modern"
+Documentation = "https://github.com/WebChatAppAi/smt-modern/blob/main/docs/API.md"
+Repository = "https://github.com/WebChatAppAi/smt-modern"
+"Bug Tracker" = "https://github.com/WebChatAppAi/smt-modern/issues"
+"Discussions" = "https://github.com/WebChatAppAi/smt-modern/discussions"
+Changelog = "https://github.com/WebChatAppAi/smt-modern/blob/main/CHANGELOG.md"
+
+[project.scripts]
+smt-tokenize = "smt.cli:tokenize_cli"
+smt-generate = "smt.cli:generate_cli"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["smt*"]
+exclude = ["tests*"]
+
+[tool.setuptools.package-data]
+smt = ["*.json", "*.yaml", "*.yml"]
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | build
+  | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+line_length = 88
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q --tb=short"
+testpaths = [
+    "tests",
+]
+python_files = [
+    "test_*.py",
+    "*_test.py",
+]
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+ignore_missing_imports = true
+
+[tool.coverage.run]
+source = ["smt"]
+omit = [
+    "*/tests/*",
+    "*/examples/*",
+    "setup.py",
+]
+
+[tool.coverage.report]
+precision = 2
+show_missing = true
+skip_covered = false
