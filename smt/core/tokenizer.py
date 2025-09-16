@@ -245,7 +245,9 @@ class SmartMelodyTokenizer:
         # Format: REST_{duration}
         parts = token.split("_")
         if len(parts) >= 2:
-            duration_name = parts[1]
+            # Join all parts after the 'REST' prefix to support dotted durations
+            # e.g., REST_dotted_quarter -> duration_name = 'dotted_quarter'
+            duration_name = "_".join(parts[1:])
             return self._duration_name_to_beats(duration_name)
         return 0.25  # Default to sixteenth note
 

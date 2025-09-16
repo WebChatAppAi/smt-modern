@@ -6,6 +6,10 @@ __pycache__/
 # C extensions
 *.so
 
+run_temp_tests.py
+use_package_demo.py
+_smt_outputs
+
 # Distribution / packaging
 .Python
 build/
